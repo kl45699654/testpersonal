@@ -5,8 +5,8 @@ import lombok.Data;
 import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
 import javax.persistence.*;
+import java.sql.Date;
 import java.sql.Timestamp;
 @Data
 public class Travel {
@@ -24,10 +24,7 @@ public class Travel {
 
     private String project;
 
-    @Column(name = "departure_time")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
-    private DateTimeLiteralExpression.DateTime departureTime;
+    private Date departureTime;
 
     @Column(name = "return_time")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")

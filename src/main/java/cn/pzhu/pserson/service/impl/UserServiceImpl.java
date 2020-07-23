@@ -32,7 +32,6 @@ public class UserServiceImpl implements UserService {
     user.setCreatedate(DateFormate.dateToString(new Date()));
     userMapper.insert(user);
   }
-
   @Override
   public IndexHeaderResDTO countHeader() {
     return userMapper.countHeader();

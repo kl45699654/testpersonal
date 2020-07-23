@@ -45,9 +45,9 @@ public class UserController {
 
   @RequestMapping(value = "/login")
   public ModelAndView login(@RequestParam("loginname") String loginname,
-      @RequestParam("password") String password,
-      HttpSession session,
-      ModelAndView mv) {
+                            @RequestParam("password") String password,
+                            HttpSession session,
+                            ModelAndView mv) {
 //    String loginStatus = (String)session.getAttribute("userid");
 //    if (loginStatus != null) {
 //      mv.addObject("message", "该账号已登入");
@@ -83,7 +83,7 @@ public class UserController {
       map = rainservice.get_UserLikeList(content, pageNum, pageSize);
       job_list = (List<User>) map.get("list");
     } else {
-       map = rainservice.get_UserList(pageNum, pageSize);
+      map = rainservice.get_UserList(pageNum, pageSize);
       job_list = (List<User>) map.get("list");
     }
     int size = (int) map.get("size");
@@ -135,6 +135,7 @@ public class UserController {
   }
 
   @ResponseBody
+
   @RequestMapping(value = "user/repeat", method = RequestMethod.GET)
   public String repeatName(String name) {
     return userService.repeatName(name);
